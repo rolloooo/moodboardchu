@@ -8,14 +8,19 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "chroma-js": "^3.2.0",
     "framer-motion": "^12.23.25",
     "next": "15.5.7",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "web": "link:"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19.2.7",
