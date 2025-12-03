@@ -1,8 +1,18 @@
-export default function MoodCard({ quote, imageUrl }: { quote: string; imageUrl: string }) {
+import { MOOD_TEXTURES } from "../lib/textureStyles";
+
+interface MoodCardProps {
+  quote: string;
+  imageUrl: string;
+  mood?: string;
+}
+
+export default function MoodCard({ quote, imageUrl, mood }: MoodCardProps) {
+  const textureClass = mood ? MOOD_TEXTURES[mood as keyof typeof MOOD_TEXTURES] : "bg-white";
+
   return (
-    <div className="border p-4 rounded shadow-md w-80 text-center">
-      <img src={imageUrl} alt="mood" className="w-full h-40 object-cover mb-2 rounded" />
-      <p>{quote}</p>
+    <div className={`rounded-lg p-6 shadow-xl max-w-md transition-all duration-500 ${textureClass}`}>
+      {imageUrl && <img src={imageUrl} alt={mood} className="w-full rounded-lg mb-4" />}
+      <p className="text-center font-anime text-gray-800">{quote}</p>
     </div>
   );
 }
