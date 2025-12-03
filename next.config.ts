@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    turbo: false, // disables Turbopack
-  },
+  output: "export", // allows `next export` for static site
 };
 
 module.exports = nextConfig;
