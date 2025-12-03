@@ -1,0 +1,7 @@
+[build]
+  command = "pnpm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"      # or whatever Node version works locally
+  NPM_FLAGS = "--global pnpm@9.1.4"
