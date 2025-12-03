@@ -8,9 +8,6 @@
     "start": "next start",
     "lint": "eslint"
   },
-  "engines": {
-    "node": "18.x"
-  },
   "dependencies": {
     "chroma-js": "^3.2.0",
     "framer-motion": "^12.23.25",
