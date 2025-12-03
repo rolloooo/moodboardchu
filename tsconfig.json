@@ -11,16 +11,14 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "jsx": "react-jsx",
-    "baseUrl": "src",
+    "jsx": "preserve",
     "paths": {
       "@/*": [
-        "*"
+        "./src/*"
       ]
     },
-    "ignoreDeprecations": "6.0",
     "incremental": true,
     "module": "esnext",
     "isolatedModules": true,
