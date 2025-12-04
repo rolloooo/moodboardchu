@@ -98,12 +98,53 @@ const MOOD_FACES: Record<string, string> = {
   Chaotic: "🤯",
   Peaceful: "🌿",
   Ecstatic: "😆",
-  Surreal: "🤯",
+  Surreal: "🫥",
   Nostalgic_Pain: "💔",
   Digital_Zen: "☯️",
   Fragmented: "🧩",
   Euphoric: "🥳",
+
+  // NEW — Page 2
+  Dramatic: "🎭",
+  Electric: "⚡",
+  Frozen: "🧊",
+  Dreamy: "💭",
+  Wired: "🔌",
+  Ghostly: "👻",
+  Vaporwave: "🌴",
+  Neon_Drip: "💧",
+  Cosmic: "🌌",
+  Synthetic: "🤖",
+  Analog_Warm: "📼",
+  Overclocked: "🔥",
+  Underwater: "🐟",
+  Glitched: "🪩",
+  Foggy: "🌫️",
+  Bittersweet: "🍬",
+  Restless: "🫨",
+  Hollow: "⚫",
+  Feral: "🐺",
+
+  // NEW — Page 3
+  Kinetic: "🏃",
+  Terminal_Bliss: "💻",
+  Electric_Melancholy: "🔋",
+  Crimson_Mood: "🟥",
+  Softcore_Zen: "🌸",
+  Burnout: "🕳️",
+  Static_Dream: "📡",
+  Bio_Luminescent: "🪼",
+  Vapor_Sadness: "🥀",
+  Monochrome: "⬛",
+  Lucid: "🧠",
+  Overstimulated: "📣",
+  Quiet_Anger: "🧨",
+  Echo: "🎧",
+  Drifting: "🪶",
+
+  Default: "🔮",
 };
+
 
 const moodGradients: Record<string, string> = {
   Happy: "rgba(251,191,36,1), rgba(253,186,116,1), rgba(244,114,182,1)",
@@ -118,8 +159,12 @@ const moodGradients: Record<string, string> = {
   Default: "rgba(244,114,182,1), rgba(59,130,246,1), rgba(6,182,212,1)",
 };
 
+
 // --- NEW DATA MAP FOR KANJI AND DESCRIPTION ---
-const MOOD_KANJI_MAP: Record<string, { kanji: string; description: string }> = {
+const MOOD_KANJI_MAP: Record<
+  string,
+  { kanji: string; description: string }
+> = {
   Happy: { kanji: "幸福", description: "soft light through digital rain" },
   Sad: { kanji: "悲しみ", description: "echoes in the empty frame" },
   Excited: { kanji: "興奮", description: "sparks along the synapse wire" },
@@ -145,8 +190,48 @@ const MOOD_KANJI_MAP: Record<string, { kanji: string; description: string }> = {
   Digital_Zen: { kanji: "禅", description: "pure binary stillness" },
   Fragmented: { kanji: "断片", description: "broken data stream" },
   Euphoric: { kanji: "陶酔", description: "uplink achieved" },
+
+  // Page 2
+  Dramatic: { kanji: "劇的", description: "spotlight on the mindstage" },
+  Electric: { kanji: "電気", description: "charged thought coil" },
+  Frozen: { kanji: "凍結", description: "emotion in standby mode" },
+  Dreamy: { kanji: "夢幻", description: "cloud-soft rendering" },
+  Wired: { kanji: "接続", description: "nerves plugged into neon" },
+  Ghostly: { kanji: "幽霊", description: "faint afterimage in memory" },
+  Vaporwave: { kanji: "蒸気波", description: "retro gradients shifting" },
+  Neon_Drip: { kanji: "滴光", description: "color leaking through pixels" },
+  Cosmic: { kanji: "宇宙", description: "infinite background process" },
+  Synthetic: { kanji: "合成", description: "artificial calm loaded" },
+  Analog_Warm: { kanji: "温帯", description: "magnetic hiss of nostalgia" },
+  Overclocked: { kanji: "加速", description: "CPU overheating" },
+  Underwater: { kanji: "水中", description: "muffled emotion layers" },
+  Glitched: { kanji: "故障", description: "pattern mismatch detected" },
+  Foggy: { kanji: "霧", description: "low visibility thoughts" },
+  Bittersweet: { kanji: "甘苦", description: "sweet static on the tongue" },
+  Restless: { kanji: "落ち着かない", description: "oscillating signal" },
+  Hollow: { kanji: "空虚", description: "echo inside the shell" },
+  Feral: { kanji: "野生", description: "raw instinct flashing" },
+
+  // Page 3
+  Kinetic: { kanji: "動力", description: "constant motion memory" },
+  Terminal_Bliss: { kanji: "端末喜", description: "OS smiling silently" },
+  Electric_Melancholy: { kanji: "電憂", description: "charged sadness" },
+  Crimson_Mood: { kanji: "深紅", description: "deep red pulse" },
+  Softcore_Zen: { kanji: "柔禅", description: "pillow-soft quiet" },
+  Burnout: { kanji: "消耗", description: "battery drained to zero" },
+  Static_Dream: { kanji: "雑夢", description: "dreams made of noise" },
+  Bio_Luminescent: { kanji: "発光", description: "living light rising" },
+  Vapor_Sadness: { kanji: "泣気", description: "sadness dissolving" },
+  Monochrome: { kanji: "単色", description: "grayscale emotion output" },
+  Lucid: { kanji: "明晰", description: "awareness initializing" },
+  Overstimulated: { kanji: "過負荷", description: "sensory overflow" },
+  Quiet_Anger: { kanji: "静怒", description: "fire behind glass" },
+  Echo: { kanji: "反響", description: "reverberating memories" },
+  Drifting: { kanji: "漂流", description: "mind untethered" },
+
   Default: { kanji: "信号", description: "signal received" },
 };
+
 // --- END NEW DATA MAP ---
 
 export default function Dashboard({ onGlitch }: DashboardProps) {
@@ -409,7 +494,6 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
                   quote={quote}
                   imageUrl={image}
                   mood={mood}
-                  kanji={kanji}
                 />
               </div>
             )}
