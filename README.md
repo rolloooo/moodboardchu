@@ -1,6 +1,6 @@
 # MoodBoardChu
 
-A simple pastel-themed mood board app hosted on the cloud. Explore moods, visualize colors, and sync your emotions in a playful, minimalist interface.
+A simple mood board app hosted on the cloud. Explore moods, visualize colors, and sync your emotions in a playful, minimalist interface.
 
 ## Live Demos
 
@@ -12,7 +12,7 @@ A simple pastel-themed mood board app hosted on the cloud. Explore moods, visual
 - Select and explore moods with a responsive mood picker
 - View mood quotes and visualizations
 - Past moods history with temporal sync effect
-- Subtle pastel aesthetic with retro digital vibes
+- B-MO aesthetic with retro digital vibes
 
 ## Tech Stack
 
