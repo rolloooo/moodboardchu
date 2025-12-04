@@ -20,7 +20,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## License & Assets
+---
 
-This project is licensed under the **MIT License**.  
-Anime-style images, stickers, and other visual assets used in this project are for **demo purposes only** and are either generated via APIs or sourced from free-to-use libraries. Please do not redistribute them commercially.
+## Additional Notes on Assets
+
+### Visual Content
+Visual assets (images, icons, emoji) used in this project are for **demonstration and personal use only**. These may include:
+- API-generated content
+- Free-to-use asset libraries
+- Custom-created visual elements
+
+**Important:** Please do not redistribute visual assets commercially without proper licensing verification.
+
+### Kanji & Typography
+Japanese kanji characters (幸福, 悲しみ, etc.) are used for aesthetic and cultural expression purposes. These are part of standard Unicode character sets and are used respectfully within the context of emotional representation.
+
+### Audio
+Sound effects are generated programmatically using the Web Audio API and are original to this project.
