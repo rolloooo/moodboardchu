@@ -40,4 +40,4 @@ Manipulate the application's entire visual environment in real-time using functi
 * **Deployment:** Vercel and Netlify
 
 ---
-*Inspired by 90s OS interfaces, Ghost in the Shell, and ambient electronic music.*
+*Inspired by 90s OS interfaces, Sigma Virus, Colorful (2010), and ambient electronic music.*
