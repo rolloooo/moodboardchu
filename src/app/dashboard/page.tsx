@@ -89,10 +89,12 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
   };
 
   return (
-    <div className="min-h-screen bg-black p-4 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-4 relative">
+    <div className="min-h-screen bg-black p-4 md:p-8 flex flex-col md:flex-row gap-4">
       {/* Left Panel */}
-      <div className="border-2 border-green-400 bg-black/80 backdrop-blur p-4 font-mono text-sm">
-        <div className="text-green-400 text-xs mb-2 animate-pulse">▸ SYSTEM STATUS</div>
+      <div className="flex-1 border-2 border-green-400 bg-black/80 backdrop-blur p-4 font-mono text-sm flex flex-col max-h-screen overflow-y-auto">
+        <div className="text-green-400 text-xs mb-2 animate-pulse">
+          ▸ SYSTEM STATUS
+        </div>
         <div className="space-y-2 text-xs text-green-400/80">
           <div>DEVICE: ONLINE ░░░░</div>
           <div>MOOD_MATRIX: ACTIVE {loading && "█ █ █"}</div>
@@ -102,9 +104,13 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
         </div>
 
         <div className="mt-6 border-t border-green-400/20 pt-4">
-          <div className="text-green-400 text-xs mb-2 animate-sync">◆ RECENT MOODS</div>
+          <div className="text-green-400 text-xs mb-2 animate-sync">
+            ◆ RECENT MOODS
+          </div>
           {history.length === 0 ? (
-            <div className="text-green-400/50 text-xs italic">no entries yet...</div>
+            <div className="text-green-400/50 text-xs italic">
+              no entries yet...
+            </div>
           ) : (
             <div className="space-y-1">
               {history.map((m, i) => (
@@ -118,13 +124,15 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
       </div>
 
       {/* Center Panel */}
-      <div className="md:col-span-1 flex flex-col gap-4 relative">
+      <div className="flex-1 flex flex-col gap-4 max-h-screen overflow-y-auto">
         <div className="border-2 border-pink-500 bg-black/80 backdrop-blur p-6 relative">
           <div className="text-center mb-4">
             <h1 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-blue-400 to-cyan-400 animate-pulse">
               時間機械
             </h1>
-            <h2 className="text-xs text-cyan-400 mt-2">time machine interface</h2>
+            <h2 className="text-xs text-cyan-400 mt-2">
+              time machine interface
+            </h2>
             <p className="text-xs text-green-400/60 mt-1">mood sync protocol</p>
           </div>
 
@@ -140,7 +148,9 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
 
         {loading && (
           <div className="border-2 border-yellow-400 bg-black/80 backdrop-blur p-4 text-center">
-            <div className="text-yellow-400 text-xs mb-2 font-bold">⟳ syncing mood data...</div>
+            <div className="text-yellow-400 text-xs mb-2 font-bold">
+              ⟳ syncing mood data...
+            </div>
             <div className="flex justify-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <div
@@ -160,10 +170,12 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
         )}
       </div>
 
-      {/* Right Panel - Scrollable */}
-      <div className="border-2 border-purple-500 bg-black/80 backdrop-blur p-4 font-mono text-xs max-h-[70vh] overflow-y-auto relative">
-        <div className="text-purple-400 text-xs mb-2 animate-pulse">▸ SYSTEM LOG</div>
-        <div className="space-y-2 text-purple-400/70 whitespace-pre-wrap text-xs leading-tight">
+      {/* Right Panel */}
+      <div className="flex-1 border-2 border-purple-500 bg-black/80 backdrop-blur p-4 font-mono text-xs flex flex-col max-h-screen overflow-y-auto">
+        <div className="text-purple-400 text-xs mb-2 animate-pulse">
+          ▸ SYSTEM LOG
+        </div>
+        <div className="space-y-2 text-purple-400/70 whitespace-pre-wrap text-xs leading-tight flex-1 overflow-y-auto">
           {`> initializing protocols...
 > japanese modules loaded
 > network stable
