@@ -6,6 +6,52 @@ import MoodCard from "../../../components/MoodCard";
 import { playMoodSound } from "../../../lib/audioGenerator";
 import { FidgetSlider, FidgetSwitch } from "../../../components/Fidgets";
 
+// --- NEW COMPONENT: WongKarWaiCrtPanel ---
+
+const WongKarWaiCrtPanel = () => {
+const WKW_IMAGE_URL = "/images/wong-kar-wai-portrait.jpg";
+
+  return (
+    <div
+      className="
+      // Outer container positioning and sizing
+      w-full h-40 mt-4 
+      // CRT screen styling
+      border-2 border-green-600 bg-black/80 rounded-lg shadow-[0_0_10px_rgba(74,222,128,0.5)] 
+      relative overflow-hidden
+      // Adds a subtle 'hum' effect
+      animate-[pulse_4s_ease-in-out_infinite]
+    "
+    >
+      {/* WKW Image inside the screen */}
+      <img
+        src={WKW_IMAGE_URL}
+        alt="Wong Kar Wai in signature glasses, CRT style"
+        className="
+          w-full h-full object-cover p-1
+          // Filters to create the low-fidelity, stylized CRT look
+          filter grayscale(80%) sepia(20%) brightness(1.2) contrast(1.1)
+          mix-blend-lighten
+        "
+      />
+
+      {/* Scanline Overlay (re-using the fx-crt style from your global CSS) */}
+      <div className="absolute inset-0 fx-crt opacity-40" />
+
+      {/* Bottom Label/Data Overlay */}
+      <div
+        className="
+        absolute bottom-0 left-0 right-0 p-1 
+        bg-black/50 text-green-400 text-[8px] font-mono text-center 
+        border-t border-green-700
+      "
+      >
+        TIME: 2046 // IMAGE.ID: 97
+      </div>
+    </div>
+  );
+};
+
 // --- COMPONENTS ---
 
 // 1. Matrix Toy (Visual Hover Effect)
@@ -35,7 +81,6 @@ const FidgetMatrix = () => {
     </div>
   );
 };
-
 
 // --- MAIN DASHBOARD ---
 
@@ -443,6 +488,16 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
 > color_mode: ${env.invertColors ? "INVERTED" : "STANDARD"}
 > system stable`}
               </div>
+            </div>
+            {/* NEW INSERTION POINT: WONG KAR WAI CRT PANEL */}
+            <div className="mt-auto pt-4 border-t border-purple-500/30">
+              <div className="text-purple-400 text-[10px] mb-2 font-bold">
+                ▸ MEMORY ECHO
+              </div>
+              {/* * Place the new component here.
+               * Note: In a real app, you must import WongKarWaiCrtPanel
+               */}
+              <WongKarWaiCrtPanel />
             </div>
             <div className="h-10"></div>
           </div>
