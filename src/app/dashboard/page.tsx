@@ -5,52 +5,41 @@ import MoodPicker from "../../../components/MoodPicker";
 import MoodCard from "../../../components/MoodCard";
 import { playMoodSound } from "../../../lib/audioGenerator";
 import { FidgetSlider, FidgetSwitch } from "../../../components/Fidgets";
+import YouTubePlayer from "../../../components/MoodMusicPlayer";
 
 // --- NEW COMPONENT: WongKarWaiCrtPanel ---
 
 const WongKarWaiCrtPanel = () => {
-const WKW_IMAGE_URL = "/images/wong-kar-wai-portrait.jpg";
+  const WKW_IMAGE_URL = "/images/wong-kar-wai-portrait.jpg";
 
   return (
-    <div
-      className="
-      // Outer container positioning and sizing
-      w-full h-40 mt-4 
-      // CRT screen styling
-      border-2 border-green-600 bg-black/80 rounded-lg shadow-[0_0_10px_rgba(74,222,128,0.5)] 
-      relative overflow-hidden
-      // Adds a subtle 'hum' effect
-      animate-[pulse_4s_ease-in-out_infinite]
-    "
-    >
-      {/* WKW Image inside the screen */}
+    <div className="w-full h-40 mt-4 relative overflow-hidden rounded-lg shadow-[0_0_10px_rgba(74,222,128,0.5)]">
+      
+      {/* Background glow for CRT effect */}
+      <div className="absolute inset-0 bg-green-400/10 blur-sm z-0" />
+
+      {/* Image should be on top, full brightness */}
       <img
         src={WKW_IMAGE_URL}
-        alt="Wong Kar Wai in signature glasses, CRT style"
+        alt="Wong Kar Wai CRT"
         className="
-          w-full h-full object-cover p-1
-          // Filters to create the low-fidelity, stylized CRT look
-          filter grayscale(80%) sepia(20%) brightness(1.2) contrast(1.1)
-          mix-blend-lighten
+          absolute inset-0 w-full h-full object-cover
+          filter brightness-125 contrast-120 saturate-120
+          z-10
         "
       />
 
-      {/* Scanline Overlay (re-using the fx-crt style from your global CSS) */}
-      <div className="absolute inset-0 fx-crt opacity-40" />
+      {/* Scanlines (optional, low opacity) */}
+      <div className="absolute inset-0 fx-crt opacity-10 z-20" />
 
-      {/* Bottom Label/Data Overlay */}
-      <div
-        className="
-        absolute bottom-0 left-0 right-0 p-1 
-        bg-black/50 text-green-400 text-[8px] font-mono text-center 
-        border-t border-green-700
-      "
-      >
+      {/* Bottom label */}
+      <div className="absolute bottom-0 left-0 right-0 p-1 bg-black/20 text-green-400 text-[8px] font-mono text-center border-t border-green-700 z-30">
         TIME: 2046 // IMAGE.ID: 97
       </div>
     </div>
   );
 };
+
 
 // --- COMPONENTS ---
 
@@ -356,6 +345,8 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
                 </div>
               )}
             </div>
+            <YouTubePlayer src="https://www.youtube.com/embed/FcZOnrL9VKM?list=PLX3nN3myfXsKM9BAIvjKsVi-VQSvpBy0r&si=bgGU92XrEIE1pGDC" />
+
             <div className="h-10"></div>
           </div>
         </div>
