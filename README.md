@@ -49,4 +49,32 @@ These features are planned and will evolve over time:
 - **ALPHA_WAVES** — global blur slider  
 - **NOISE_GATE** — adjustable film-grain layer  
 
-### 🧠 Mood S
+### 🧠 Mood Sync Protocol (Planned)
+- Expanded mood list (25+ moods)  
+- System Log for mood history + timestamps  
+- ASMR-quality audio cues per mood  
+- Glitch/loading micro-animations  
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework:** Next.js (App Router)  
+- **Language:** TypeScript  
+- **Styling:** Tailwind CSS with custom keyframes/utility classes  
+- **UI Animation:** CSS keyframes + React state transitions  
+- **Deployment:** Vercel / Netlify  
+
+---
+
+## 🎨 Inspiration
+
+MoodBoard draws inspiration from:
+
+- Retro-digital OS aesthetics  
+- Minimal cyberpunk UI design  
+- Kanji symbolism  
+- ASMR interaction design  
+
+A small, evolving experiment in emotion-driven interface design.
+
