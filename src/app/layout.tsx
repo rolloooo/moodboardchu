@@ -8,7 +8,7 @@ const orbitron = Orbitron({ subsets: ["latin"], weight: ["400", "700", "900"] })
 const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"] })
 
 export const metadata: Metadata = {
-  title: "時間機械 | Mood Board",
+  title: "タイムマシン | Mood Board",
   description: "A retro-futuristic mood time machine from the year 2000",
   generator: "v0.app",
   icons: {
