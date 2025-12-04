@@ -1,68 +1,61 @@
-export const MOOD_SOUNDS = {
-  Happy: { frequency: 523.25, type: "sine", duration: 0.5 },
-  Chill: { frequency: 196.0, type: "sine", duration: 1.0 },
-  Excited: { frequency: 659.25, type: "square", duration: 0.3 },
-  Sad: { frequency: 146.83, type: "sine", duration: 1.5 },
-  Angry: { frequency: 880.0, type: "square", duration: 0.2 },
-  Tired: { frequency: 110.0, type: "sine", duration: 2.0 },
-  Calm: { frequency: 261.63, type: "sine", duration: 1.2 },
-  Energetic: { frequency: 783.99, type: "square", duration: 0.4 },
-  Peaceful: { frequency: 164.81, type: "sine", duration: 1.8 },
-  Anxious: { frequency: 523.25, type: "square", duration: 0.1 },
-  Confident: { frequency: 329.63, type: "sine", duration: 0.6 },
-  Lonely: { frequency: 130.81, type: "sine", duration: 2.0 },
-  Loved: { frequency: 440.0, type: "sine", duration: 1.0 },
-  Motivated: { frequency: 659.25, type: "square", duration: 0.5 },
-  Bored: { frequency: 220.0, type: "sine", duration: 3.0 },
-  Nostalgic: { frequency: 293.66, type: "sine", duration: 1.5 },
-  Contemplative: { frequency: 196.0, type: "sine", duration: 2.0 },
-  Whimsical: { frequency: 587.33, type: "sine", duration: 0.4 },
-  Melancholic: { frequency: 146.83, type: "sine", duration: 2.5 },
-  Inspired: { frequency: 659.25, type: "sine", duration: 0.7 },
-  Hopeful: { frequency: 523.25, type: "sine", duration: 1.0 },
-  Playful: { frequency: 523.25, type: "sine", duration: 0.3 },
-  Grateful: { frequency: 392.0, type: "sine", duration: 1.2 },
-  Adventurous: { frequency: 783.99, type: "sine", duration: 0.6 },
-  Sentimental: { frequency: 349.23, type: "sine", duration: 1.5 },
-  Curious: { frequency: 587.33, type: "sine", duration: 0.5 },
-  Serene: { frequency: 174.61, type: "sine", duration: 2.0 },
-  Daring: { frequency: 880.0, type: "sine", duration: 0.4 },
-  Thoughtful: { frequency: 261.63, type: "sine", duration: 1.8 },
-  Transcendent: { frequency: 528.0, type: "sine", duration: 2.0 },
-  Ethereal: { frequency: 741.0, type: "sine", duration: 1.5 },
-  Euphoric: { frequency: 852.0, type: "sine", duration: 1.0 },
-  Luminous: { frequency: 963.0, type: "sine", duration: 1.2 },
-  Celestial: { frequency: 741.0, type: "sine", duration: 2.0 },
-  Blissful: { frequency: 528.0, type: "sine", duration: 1.8 },
-  Enchanted: { frequency: 639.0, type: "sine", duration: 1.5 },
-  Magical: { frequency: 714.0, type: "sine", duration: 1.3 },
-  Cosmic: { frequency: 432.0, type: "sine", duration: 2.0 },
-  Infinite: { frequency: 852.0, type: "sine", duration: 2.5 },
-  Awakened: { frequency: 963.0, type: "sine", duration: 1.5 },
-};
-
-export function playMoodSound(mood: string) {
+/**
+ * Generates and plays a retro-futuristic mood sound effect
+ * Matches the mood with specific frequencies and audio patterns
+ */
+export function playMoodSound(mood: string): void {
   try {
-    const audioContext = new (window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)();
-    const moodData = MOOD_SOUNDS[mood as keyof typeof MOOD_SOUNDS];
+    // Use Web Audio API for retro-futuristic beeps and tones
+    const audioContext = new (window.AudioContext ?? window.AudioContext!)();
 
-    if (!moodData) return;
+    // Mood-to-frequency mapping with Y2K/anime vibes
+    const moodFrequencies: Record<string, { freq: number; duration: number; type: OscillatorType }> = {
+      Happy: { freq: 800, duration: 0.1, type: "sine" },
+      Sad: { freq: 200, duration: 0.3, type: "sine" },
+      Excited: { freq: 1200, duration: 0.05, type: "square" },
+      Calm: { freq: 400, duration: 0.5, type: "sine" },
+      Angry: { freq: 600, duration: 0.15, type: "triangle" },
+      Tired: { freq: 150, duration: 0.4, type: "sine" },
+      Anxious: { freq: 900, duration: 0.08, type: "sawtooth" },
+      Lonely: { freq: 300, duration: 0.6, type: "sine" },
+      Loved: { freq: 500, duration: 0.2, type: "sine" },
+      Confident: { freq: 700, duration: 0.12, type: "square" },
+      Motivated: { freq: 1000, duration: 0.1, type: "square" },
+      Bored: { freq: 250, duration: 0.8, type: "sine" },
+      Nostalgic: { freq: 350, duration: 0.25, type: "triangle" },
+      Hopeful: { freq: 850, duration: 0.15, type: "sine" },
+      Grateful: { freq: 650, duration: 0.2, type: "sine" },
+      Melancholic: { freq: 220, duration: 0.35, type: "sine" },
+      Transcendent: { freq: 1100, duration: 0.2, type: "sine" },
+      Chaotic: { freq: 950, duration: 0.06, type: "sawtooth" },
+      Peaceful: { freq: 380, duration: 0.6, type: "sine" },
+      Ecstatic: { freq: 1300, duration: 0.08, type: "square" },
+      Surreal: { freq: 440, duration: 0.15, type: "triangle" },
+      Nostalgic_Pain: { freq: 320, duration: 0.4, type: "sine" },
+      Digital_Zen: { freq: 528, duration: 0.3, type: "sine" },
+      Fragmented: { freq: 1050, duration: 0.07, type: "sawtooth" },
+      Euphoric: { freq: 950, duration: 0.12, type: "sine" },
+    }
 
-    const oscillator = audioContext.createOscillator();
-    const gainNode = audioContext.createGain();
+    const soundConfig = moodFrequencies[mood] || moodFrequencies.Happy
 
-    oscillator.type = moodData.type as OscillatorType;
-    oscillator.frequency.value = moodData.frequency;
+    // Create oscillator for retro beep
+    const oscillator = audioContext.createOscillator()
+    const gainNode = audioContext.createGain()
 
-    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + moodData.duration);
+    oscillator.type = soundConfig.type
+    oscillator.frequency.value = soundConfig.freq
 
-    oscillator.connect(gainNode);
-    gainNode.connect(audioContext.destination);
+    // Exponential fade-out for retro effect
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime)
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + soundConfig.duration)
 
-    oscillator.start(audioContext.currentTime);
-    oscillator.stop(audioContext.currentTime + moodData.duration);
+    oscillator.connect(gainNode)
+    gainNode.connect(audioContext.destination)
+
+    oscillator.start(audioContext.currentTime)
+    oscillator.stop(audioContext.currentTime + soundConfig.duration)
   } catch (error) {
-    console.error("Audio playback error:", error);
+    // Silently fail if Web Audio API not available
+    console.debug("Audio API unavailable, mood sound skipped")
   }
 }
