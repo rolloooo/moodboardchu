@@ -89,7 +89,7 @@ Each features:
 
 ## 🛠 Tech Stack
 
-- **Framework:** Next.js 16 (App Router)  
+- **Framework:** Next.js 14 (App Router)  
 - **Language:** TypeScript  
 - **Styling:** Tailwind CSS with custom keyframes/utility classes  
 - **UI Animation:** CSS keyframes + React state transitions  
@@ -113,3 +113,46 @@ A small, evolving experiment in **emotion-driven interface design** that treats 
 
 ## 🚀 Getting Started
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/moodboard.git
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Open http://localhost:3000
+```
+
+---
+
+## 📁 Project Structure
+```
+/components
+  ├── MoodPicker.tsx      # Mood selection grid
+  ├── MoodCard.tsx        # Kanji + description display
+  └── Fidgets.tsx         # Matrix, switches, sliders
+
+/lib
+  └── audioGenerator.ts   # Sound feedback system
+
+/app
+  └── page.tsx            # Main dashboard component
+```
+
+---
+
+## 🤝 Contributing
+
+This is a personal experimental project, but suggestions and ideas are welcome! Feel free to open an issue or reach out.
+
+---
+
+## 📜 License
+
+MIT License — feel free to remix and experiment!
+
+---
+
+**Built with ☯️ for digital emotional explorers**
