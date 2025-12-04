@@ -4,8 +4,8 @@ A hyper-stylized digital dashboard designed to map human emotions onto a cyberpu
 
 ## Live Demo
 
-- **Vercel**: [https://moodboardchu.vercel.app](https://moodboardchu.vercel.app) (Please update this link!)
-- **Netlify**: [https://moodboardchuu.netlify.app](https://moodboardchuu.netlify.app) (Please update this link!)
+- **Vercel**: [https://moodboardchu.vercel.app](https://moodboardchu.vercel.app)
+- **Netlify**: [https://moodboardchuu.netlify.app](https://moodboardchuu.netlify.app)
 
 ## Core Features
 
