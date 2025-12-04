@@ -12,7 +12,7 @@ A simple mood board app hosted on the cloud. Explore moods, visualize colors, an
 - Select and explore moods with a responsive mood picker
 - View mood quotes and visualizations
 - Past moods history with temporal sync effect
-- B-MO aesthetic with retro digital vibes
+- BMO aesthetic with retro digital vibes
 
 ## Tech Stack
 
