@@ -101,6 +101,7 @@ const MOOD_FULL_COLORS: Record<string, string> = {
 };
 
 const KANJI_TEXT_COLORS: Record<string, string> = {
+  // Page 1
   Happy: "text-yellow-400",
   Sad: "text-blue-400",
   Excited: "text-pink-500",
@@ -109,25 +110,66 @@ const KANJI_TEXT_COLORS: Record<string, string> = {
   Tired: "text-gray-400",
   Anxious: "text-purple-400",
   Lonely: "text-indigo-400",
-  Loved: "text-pink-400",
+  Loved: "text-rose-400",
   Confident: "text-green-400",
   Motivated: "text-lime-400",
   Bored: "text-gray-500",
   Nostalgic: "text-amber-500",
   Hopeful: "text-orange-400",
-  Grateful: "text-rose-400",
+  Grateful: "text-emerald-400",
   Melancholic: "text-violet-500",
   Transcendent: "text-white",
-  Chaotic: "text-orange-500",
+  Chaotic: "text-orange-600",
   Peaceful: "text-teal-400",
   Ecstatic: "text-yellow-300",
   Surreal: "text-fuchsia-400",
-  Nostalgic_Pain: "text-amber-600",
+  Nostalgic_Pain: "text-amber-700",
   Digital_Zen: "text-lime-500",
   Fragmented: "text-cyan-500",
   Euphoric: "text-pink-300",
+
+  // Page 2
+  Dramatic: "text-red-600",
+  Electric: "text-blue-300",
+  Frozen: "text-sky-200",
+  Dreamy: "text-indigo-300",
+  Wired: "text-purple-500",
+  Ghostly: "text-gray-300",
+  Vaporwave: "text-pink-400",
+  Neon_Drip: "text-fuchsia-500",
+  Cosmic: "text-indigo-600",
+  Synthetic: "text-cyan-400",
+  Analog_Warm: "text-orange-500",
+  Overclocked: "text-red-400",
+  Underwater: "text-blue-400",
+  Glitched: "text-pink-600",
+  Foggy: "text-gray-400",
+  Bittersweet: "text-amber-600",
+  Restless: "text-violet-400",
+  Hollow: "text-gray-500",
+  Feral: "text-red-500",
+
+  // Page 3
+  Kinetic: "text-lime-400",
+  Terminal_Bliss: "text-white",
+  Electric_Melancholy: "text-indigo-500",
+  Crimson_Mood: "text-red-700",
+  Softcore_Zen: "text-emerald-400",
+  Burnout: "text-orange-600",
+  Static_Dream: "text-gray-400",
+  Bio_Luminescent: "text-cyan-300",
+  Vapor_Sadness: "text-blue-400",
+  Monochrome: "text-gray-300",
+  Lucid: "text-white",
+  Overstimulated: "text-yellow-400",
+  Quiet_Anger: "text-red-500",
+  Echo: "text-indigo-400",
+  Drifting: "text-teal-300",
+
+  // Default fallback
   Default: "text-green-400",
 };
+
 
 // --- COMPONENT ---
 export default function MoodCard({ quote, imageUrl, mood }: MoodCardProps) {
