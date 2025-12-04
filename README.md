@@ -4,7 +4,6 @@ MoodBoard is a stylized emotional interface that transforms mood selection into 
 
 ## 🔗 Live Demo
 - **Vercel:** https://moodboardchu.vercel.app  
-- **Netlify:** https://moodboardchuu.netlify.app  
 
 ---
 
