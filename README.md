@@ -114,7 +114,7 @@ A small, evolving experiment in **emotion-driven interface design** that treats 
 ## 🚀 Getting Started
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/moodboard.git
+git clone https://github.com/rolloooo/moodboard.git
 
 # Install dependencies
 npm install
