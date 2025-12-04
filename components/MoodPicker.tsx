@@ -64,7 +64,7 @@ export default function MoodPicker({
           <button
             key={mood.name}
             onClick={() => onSelectMood(mood.name)}
-            className="px-2 py-2 border-2 border-green-400 bg-black text-green-400 text-xs font-bold hover:border-pink-500 hover:text-pink-500 hover:shadow-lg hover:shadow-pink-500 transition-all duration-200 transform hover:scale-105"
+            className="px-2 py-2 border-2 border-green-400 bg-black text-green-400 text-xs font-bold hover:border-pink-500 hover:text-pink-500 hover:shadow-lg hover:shadow-pink-500 transition-all duration-200"
           >
             <div>{mood.name}</div>
             <div className="text-cyan-400 text-xs">{mood.jp}</div>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import MoodPicker from "../../../components/MoodPicker";
 import MoodCard from "../../../components/MoodCard";
 import { playMoodSound } from "../../../lib/audioGenerator";
+import { FidgetSlider, FidgetSwitch } from "../../../components/Fidgets";
 
 // --- COMPONENTS ---
 
@@ -35,104 +36,6 @@ const FidgetMatrix = () => {
   );
 };
 
-// 2. Functional Toggle Switch
-interface SwitchProps {
-  label: string;
-  color: string;
-  isOn: boolean;
-  onToggle: () => void;
-}
-
-const FidgetSwitch = ({ label, color, isOn, onToggle }: SwitchProps) => {
-  const activeColor = {
-    cyan: "bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)]",
-    pink: "bg-pink-500 shadow-[0_0_10px_rgba(236,72,153,0.8)]",
-    purple: "bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.8)]",
-  }[color];
-
-  return (
-    <div
-      onClick={onToggle}
-      className="cursor-pointer group flex items-center justify-between text-[10px] font-mono hover:bg-white/5 p-2 rounded select-none transition-colors border border-transparent hover:border-white/10"
-    >
-      <span className="text-gray-400 group-hover:text-white transition-colors">
-        {label}
-      </span>
-      <div className="flex gap-2 items-center">
-        <span
-          className={`text-[8px] ${
-            isOn ? "opacity-30" : "opacity-100 text-white"
-          }`}
-        >
-          OFF
-        </span>
-        <div
-          className={`w-8 h-4 rounded-full relative transition-all duration-300 border border-gray-600 ${
-            isOn ? "bg-gray-800" : "bg-transparent"
-          }`}
-        >
-          <div
-            className={`absolute top-0.5 w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              isOn ? `left-4 ${activeColor}` : `left-1 bg-gray-500`
-            }`}
-          />
-        </div>
-        <span
-          className={`text-[8px] ${
-            isOn ? "opacity-100 text-white" : "opacity-30"
-          }`}
-        >
-          ON
-        </span>
-      </div>
-    </div>
-  );
-};
-
-// 3. Functional Slider
-interface SliderProps {
-  label: string;
-  value: number;
-  onChange: (val: number) => void;
-}
-
-const FidgetSlider = ({ label, value, onChange }: SliderProps) => {
-  return (
-    <div className="flex flex-col gap-1 w-full px-2 py-1">
-      <div className="flex justify-between text-[10px] text-purple-400/80 mb-1">
-        <span>{label}</span>
-        <span className="font-mono">{value}%</span>
-      </div>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-purple-500"
-      />
-      <style jsx>{`
-        input[type="range"]::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          height: 12px;
-          width: 12px;
-          border-radius: 2px;
-          background: #c084fc;
-          cursor: pointer;
-          margin-top: -4px;
-          box-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
-        }
-        input[type="range"]::-webkit-slider-runnable-track {
-          width: 100%;
-          height: 4px;
-          cursor: pointer;
-          background: #333;
-          border-radius: 2px;
-        }
-      `}</style>
-    </div>
-  );
-};
 
 // --- MAIN DASHBOARD ---
 
@@ -323,8 +226,8 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
             to bottom,
             rgba(255, 255, 255, 0),
             rgba(255, 255, 255, 0) 50%,
-            rgba(0, 0, 0, 0.2) 50%,
-            rgba(0, 0, 0, 0.2)
+            rgba(0, 0, 0, 0.4) 50%,
+            rgba(0, 0, 0, 0.4)
           );
           background-size: 100% 4px;
           animation: scan 0.3s linear infinite;
@@ -351,14 +254,14 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
 
       {/* FX Layers */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 mix-blend-overlay"
+        className="pointer-events-none absolute inset-0 z-50 mix-blend-overlay"
         style={{
           opacity: env.noiseOpacity / 100,
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
       {env.crtFilter && (
-        <div className="absolute inset-0 fx-crt mix-blend-multiply opacity-50" />
+        <div className="absolute inset-0 fx-crt z-50 opacity-30" />
       )}
 
       {/* Main Layout */}
