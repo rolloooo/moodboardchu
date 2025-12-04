@@ -434,7 +434,7 @@ export default function Dashboard({ onGlitch }: DashboardProps) {
                 </h1>
 
                 <h2 className="text-xs text-cyan-400 mt-2 tracking-[0.2em] uppercase">
-                  time machine interface
+                  moodboard chu~
                 </h2>
               </div>
               {mood && (
